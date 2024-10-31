@@ -35,3 +35,11 @@ Para instalar: npm install --save styled-components
 Biblioteca do CSS para que seja utilizado o CSS - IN - JS (+ performático). Realizar o import em todo arquivo .js
 
 ### Arquivo theme.js criado para ajudar na estruturação do projeto e global.js para definir os estilos globais da página
+
+### Biblioteca React Icons usada
+
+site: https://react-icons.github.io/react-icons/
+
+Para instalar: npm install react-icons --save
+
+Biblioteca do React utilizada para adicionar ícones estilizados a páginas Web

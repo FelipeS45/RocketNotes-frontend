@@ -1,4 +1,5 @@
 import { Container } from "./styles"
+import { Header } from "../../components/header"
 import { Button } from "../../components/button"
 
 export function Details(){ // todo componente React precisa começar com letra maiúscula 
@@ -6,9 +7,9 @@ export function Details(){ // todo componente React precisa começar com letra m
   return(
     <Container>
 
-      <h1>Batata</h1>
+      <Header/>
 
-      <Button title = "Login" loading />
+      <Button title = "Voltar" loading />
 
     </Container> // todo componente React retorna apenas 1 elemento
   )
