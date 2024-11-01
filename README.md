@@ -43,3 +43,5 @@ site: https://react-icons.github.io/react-icons/
 Para instalar: npm install react-icons --save
 
 Biblioteca do React utilizada para adicionar ícones estilizados a páginas Web
+
+### Conceito de children usado na pasta "section"
