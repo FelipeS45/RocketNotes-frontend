@@ -9,7 +9,7 @@ export const Container = styled.section`
 
     padding-bottom: 16px;
 
-    margin-bottom: 22px;
+    margin: 26px 0px;
 
     color: ${({theme}) => theme.COLORS.GRAY_100};
     font-size: 20px;
