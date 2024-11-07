@@ -1,17 +1,19 @@
 import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
+import { Link } from "react-router-dom";
+
 import { Header } from "../../components/header";
 import { ButtonText } from "../../components/buttontext";
 import { Input } from "../../components/input";
-import { Section } from "../../components/section"
+import { Section } from "../../components/section";
 import { Note } from "../../components/note";
 
-
-import {FiPlus, FiSearch} from "react-icons/fi"
+import { FiPlus, FiSearch } from "react-icons/fi";
 
 export function Home(){
 
   return(
     <Container>
+
       <Brand>
       
         <h1>Rocket Notes</h1>
@@ -49,12 +51,13 @@ export function Home(){
 
       </Content>
 
-      <NewNote>
+      <NewNote to = "/new" >
 
         <FiPlus/>
         Criar Nota
 
       </NewNote>
+      
     </Container>
   )
 }

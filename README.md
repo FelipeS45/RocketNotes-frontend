@@ -45,3 +45,9 @@ Para instalar: npm install react-icons --save
 Biblioteca do React utilizada para adicionar ícones estilizados a páginas Web
 
 ### Conceito de children usado na pasta "section"
+
+### Para configurar a navegação no projeto - React Router DOM
+
+Para instalar: npm install react-router-dom
+
+Biblioteca do React para a criação de rotas e possibilitar a navegação no projeto

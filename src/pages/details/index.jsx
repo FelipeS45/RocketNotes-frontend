@@ -3,7 +3,7 @@ import { Container, Links, Content } from "./styles"
 import { Header } from "../../components/header"
 import { Button } from "../../components/button"
 import { Section } from "../../components/section"
-import { Tag } from "../../components/tags"
+import { Tag } from "../../components/tag"
 import { ButtonText } from "../../components/buttontext"
 
 export function Details(){ // todo componente React precisa começar com letra maiúscula 
