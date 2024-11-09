@@ -51,3 +51,7 @@ Biblioteca do React utilizada para adicionar ícones estilizados a páginas Web
 Para instalar: npm install react-router-dom
 
 Biblioteca do React para a criação de rotas e possibilitar a navegação no projeto
+
+### Biblioteca Axios para consumir requisições HTTP no projeto
+
+Para instalar: npm install axios
