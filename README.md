@@ -55,3 +55,5 @@ Biblioteca do React para a criação de rotas e possibilitar a navegação no pr
 ### Biblioteca Axios para consumir requisições HTTP no projeto
 
 Para instalar: npm install axios
+
+### useState - IMPORTANTE
