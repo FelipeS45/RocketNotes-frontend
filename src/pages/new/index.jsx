@@ -1,5 +1,4 @@
 import { Container, Form } from "./styles";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
@@ -12,6 +11,7 @@ import { Textarea } from "../../components/textarea";
 import { NoteItem } from "../../components/noteitem";
 import { Section } from "../../components/section";
 import { Button } from "../../components/button";
+import { ButtonText } from "../../components/buttontext";
 
 export function New(){
 
@@ -25,6 +25,10 @@ export function New(){
   const [newTag, setNewTag] = useState("")
 
   const navigate = useNavigate()
+
+  function handleBack() {
+    navigate(-1)
+  }
 
   function handleAddLink() {
     
@@ -85,7 +89,7 @@ export function New(){
       });
   
       alert("Nota criada com sucesso!");
-      navigate("/");
+      navigate(-1);
 
     } catch (error) {
       alert("Erro ao criar nota. Tente novamente");
@@ -105,7 +109,9 @@ export function New(){
 
             <h1>Criar nota</h1>
 
-            <Link to = "/" >Voltar</Link>
+            <ButtonText title = "Voltar"
+              onClick = {handleBack}
+            />
 
           </header>
 

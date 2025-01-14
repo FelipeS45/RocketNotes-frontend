@@ -1,9 +1,11 @@
-import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 import { useEffect } from "react";
 
 import { api } from "../../services/api";
+
+import { Container, Brand, Menu, Search, Content, NewNote } from "./styles";
 
 import { Header } from "../../components/header";
 import { ButtonText } from "../../components/buttontext";
@@ -22,7 +24,13 @@ export function Home(){
 
   const [notes, setNotes] = useState([])
 
+  const navigate = useNavigate()
+
   function handleTagSelected(tagName) {
+
+    if(tagName === "all") {
+      return setTagsSelected([])
+    }
 
     const alreadySelected = tagsSelected.includes(tagName)
 
@@ -33,6 +41,10 @@ export function Home(){
     } else {
       setTagsSelected(prevState => [...prevState, tagName])
     }
+  }
+
+  function handleDetails(id) {
+    navigate(`/details/${id}`)
   }
 
   useEffect(() => {
@@ -106,7 +118,8 @@ export function Home(){
             notes.map(note => (
               <Note 
                 key = {String(note.id)}
-                data = {note}          
+                data = {note} 
+                onClick = {() => handleDetails(note.id)}         
               />
             ))
           }

@@ -1,3 +1,9 @@
+import { useState, useEffect } from "react"
+
+import { useParams, useNavigate } from "react-router-dom"
+
+import { api } from "../../services/api"
+
 import { Container, Links, Content } from "./styles"
 
 import { Header } from "../../components/header"
@@ -7,47 +13,101 @@ import { Tag } from "../../components/tag"
 import { ButtonText } from "../../components/buttontext"
 
 export function Details(){ // todo componente React precisa começar com letra maiúscula 
+
+  const [data, setData] = useState(null)
+
+  const params = useParams()
+  const navigate = useNavigate()
+
+  function handleBack() {
+    navigate(-1)
+  }
+
+  async function handleRemove() {
+    const confirm = window.confirm("Deseja realmente remover a nota?")
+
+    if(confirm) {
+      await api.delete(`/notes/${params.id}`)
+
+      navigate(-1) //pode também chamar a função handleBack
+    }
+  }
+
+  useEffect(() => {
+
+    async function fetchNote() {
+      const response = await api.get(`/notes/${params.id}`)
+
+      setData(response.data)
+    }
+
+    fetchNote()
+
+  }, [])
   
   return(
     <Container>
 
       <Header/>
 
-      <main>
-        <Content>        
+      {
 
-        <ButtonText title = "Excluir nota"/>
+        data &&
+        <main>
 
-        <h1>Introdução ao React</h1>
+          <Content>        
 
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique aut dolorem temporibus asperiores, in eum tempora atque sint minima nesciunt repudiandae nostrum voluptate nulla quo tenetur nisi? Magni, facere sit.</p>
+            <ButtonText title = "Excluir nota"
+              onClick = {handleRemove}
+            />
 
-        <Section title = "Links úteis">
+            <h1>{data.title}</h1>
 
-          <Links>
-            <li>
-              <a href="#">https://www.rocketseat.com.br</a>
-            </li>
+            <p>{data.description}</p>
 
-            <li>
-              <a href="#">https://www.rocketseat.com.br</a>
-            </li>
-          </Links>
+            {
+              data.links &&
+              <Section title = "Links úteis">
 
-        </Section>
+                <Links>
+                  {
+                    data.links.map(link => (
+                      <li key = {String(link.id)}>
+                        <a href = {link.url} target = "_blank">
+                          {link.url}
+                        </a>
+                      </li>
+                    )) 
+                  }
+                </Links>
 
-        <Section title = "Marcadores">
+              </Section>
+            }
 
-          <Tag title = "express"/>
-          <Tag title = "nodejs"/>
+            {
+              data.tags &&
+              <Section title = "Marcadores">
 
-        </Section>
+                {
+                  data.tags.map(tag => (
+                    <Tag key = {String(tag.id)} 
+                      title = {tag.name}
+                    />
+                  ))
+                }
 
-        <Button title = "Voltar"/>
+              </Section>
+            }           
 
-        </Content>
-      </main>
+            <Button title = "Voltar"
+              onClick = {handleBack}
+            />
 
-    </Container> // todo componente React retorna apenas 1 elemento
+          </Content>
+
+        </main>
+      }
+
+    </Container>
   )
 }

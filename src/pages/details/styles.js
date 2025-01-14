@@ -51,4 +51,8 @@ export const Content = styled.div`
     margin-top: 16px;
     text-align: justify;
   }
+  
+  >button:last-child{
+    margin-top: 30px;
+  }
 `
