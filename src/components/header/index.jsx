@@ -1,51 +1,65 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-import {RiShutDownLine} from "react-icons/ri"
 import { Container, Profile, Logout } from "./styles";
+
+import { RiShutDownLine } from "react-icons/ri";
+import { FiMenu } from "react-icons/fi";
 
 import { useAuth } from "../../hooks/auth";
 
-import { api } from "../../services/api"
+import { api } from "../../services/api";
 
-import  avatarPlaceholder from "../../assets/avatar_placeholder.svg";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
-export function Header(){
-
-  const {signOut, user} = useAuth()
+export function Header({ onMenuToggle }) {
+  const { signOut, user } = useAuth()
 
   const navigate = useNavigate()
+  const location = useLocation()
 
   function handleSignOut() {
     navigate("/")
-    
+
     signOut()
   }
 
-  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
+  const avatarUrl = user.avatar? `${api.defaults.baseURL}/files/${user.avatar}`: avatarPlaceholder
 
-  return(
+  return (
     <Container>
 
-      <Profile to = "/profile" >
+      <div className="profile-wrapper">
+        
+        {
+          location.pathname === "/" && 
+          (
+            <div className="togglemenu">
+              <button onClick={onMenuToggle}> 
+                <FiMenu />
+              </button>
+            </div>
+          )
+        }
 
-        <img 
-          src = {avatarUrl} 
-          alt = "foto do usuário"
-        />
+        <div className="profile">
 
-        <div>
+          <Profile to="/profile">
 
-          <span>Bem-vindo,</span>
-          <strong>{user.name}</strong>
+            <img src={avatarUrl} alt="foto do usuário" />
+
+            <div>
+              <span>Bem-vindo,</span>
+              <strong>{user.name}</strong>
+            </div>
+
+          </Profile>
 
         </div>
+      
+      </div>
 
-      </Profile>
-
-      <Logout onClick = {handleSignOut}>
-
-        <RiShutDownLine/>
-
+      <Logout onClick={handleSignOut}>
+        <RiShutDownLine />
       </Logout>
 
     </Container>

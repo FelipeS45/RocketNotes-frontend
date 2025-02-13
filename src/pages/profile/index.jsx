@@ -9,7 +9,6 @@ import { useAuth } from "../../hooks/auth";
 
 import { Input } from "../../components/input";
 import { Button } from "../../components/button";
-import { ButtonText } from "../../components/buttontext";
 
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 

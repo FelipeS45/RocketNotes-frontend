@@ -1,59 +1,73 @@
-# Criando um projeto React com Vite 
+<h1 align = "center">
+  <img src = "./src/assets/Home.png">
+</h1>
 
-### Vite é uma opção mais rápida e performática para a criação de apps React
+## Sobre o projeto
 
-### Comando no terminal 
+O projeto Rocket Notes é uma aplicação Web desenvolvida para o usuários que desejam guardar notas importantes para suas atividades diárias em um sistema web. Na aplicação, os usuários devem se cadastrar e se autenticar para que possam criar suas notas. Assim, todas as notas ficam salvas em um banco de dados e são exibidas apenas ao usuário que a criou. Além disso, todos os usuários podem alterar as informações de seus perfis (nome, e-mail e senha), para mellhor uso da aplicação. Por fim, o sistema desenvolvido conta com telas responsivas a aparelhos mobile e desktop para melhor experiência do usuário.
 
-npm create vite@latest
+## Como utilizar o projeto
 
-Após o comando, digitar o nome do projeto sem letra maiúscula, selecionar React e JS ou TS (a depender da linguagem utilizada) e digitar os comandos que o terminal manda para instalar a pasta node_modules
+### Link do deploy da aplicação
 
-# Executando o projeto React 
+https://siterocketnotess.netlify.app/
 
-### Comando no terminal 
+Obs.: como a API está sendo hospedada em um provedor gratuito, após um período de inatividade ela é desligada, o que pode gerar um certo delay nas requisições. Diante disso, basta aguardar o reinício da mesma e utilizar a aplicação normalmente.
+ 
+### Executando o Frontend do projeto
 
-npm run dev
+```bash
 
-Após o comando, seguir o link sugerido como local no terminal. Após isso, apagar no projeto os arquivos index.css, app.css, os ícones .svg necessários e os seus respectivos imports nos arquivos que sobrarem. Então, ir para o arquivo index.html e apagar o link no "head" relacionado ao ícone do Vite + React
+  # Vá até o diretório do projeto
+  $ cd rocketnotes
 
-# Codando o projeto
+  # Instale a dependência node_modules
+  $ npm install
 
-Criar uma pasta "pages" dentro de "src" para organizar as páginas criadas 
+  # Inicie o servidor 
+  $ npm run dev
 
-import {Details} from './pages/Details.jsx' -> colocar "Details" entre {} por que a função exportada não possui "default"
+  # Agora, basta executar cntrl + click no endereço exibido no terminal ou digitar no seu navegador de preferência:
+  $ http://localhost:5173/
 
-### Fragment no React
+```
 
-Como todo componente React retorna apenas 1 elemento, coloca-se os elementos que se deseja retornar dentro de (<>) e (</>) para que seja permitido
+## Tecnologias utilizadas
 
-### Pode-se colocar os elementos que se deseja retornar dentro de <div> quando se deseja que eles sejam estilizados
+A parte Frontend do projeto foi desenvolvida com a utilização das seguintes tecnologias:
 
-### Styled Components
+- [ReactJS](https://react.dev/)
+- [JavaScript]()
+- [ReactDOM](https://www.npmjs.com/package/react-dom)
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom)
+- [Axios](https://www.npmjs.com/package/axios)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Styled Components](https://styled-components.com/)
 
-Para instalar: npm install --save styled-components
+### - ReactJS 
 
-Biblioteca do CSS para que seja utilizado o CSS - IN - JS (+ performático). Realizar o import em todo arquivo .js
+Biblioteca JavaScript voltada ao frontend e amplamente utilizada para o desenvolvimento de interfaces de usuário (UIs).
 
-### Arquivo theme.js criado para ajudar na estruturação do projeto e global.js para definir os estilos globais da página
+### - JavaScript
 
-### Biblioteca React Icons usada
+Linguagem de programação de tipagem fraca (não exige que o tipo de uma variável ou função seja declarado quando ela é criada) amplamente utilizada para a criação de páginas Web. Pode ser utilizada tanto no frontend (ex.: ReactJS) quanto no backend (ex.: NodeJS).
 
-site: https://react-icons.github.io/react-icons/
+### - ReactDOM
 
-Para instalar: npm install react-icons --save
+Responsável por renderizar componentes ou elementos React na DOM.
 
-Biblioteca do React utilizada para adicionar ícones estilizados a páginas Web
+### - React Router DOM
 
-### Conceito de children usado na pasta "section"
+Biblioteca React que permite o gerenciamento de rotas entre páginas de uma aplicação Web.
 
-### Para configurar a navegação no projeto - React Router DOM
+### - Axios
 
-Para instalar: npm install react-router-dom
+Biblioteca React que possibilita a interação de um projeto React com APIs externas.
 
-Biblioteca do React para a criação de rotas e possibilitar a navegação no projeto
+### - React Icons
 
-### Biblioteca Axios para consumir requisições HTTP no projeto
+Bibioteca React utilizada para adicionar ícones a botões no geral.
 
-Para instalar: npm install axios
+### - Styled Components
 
-### useState - IMPORTANTE
+Biblioteca React que possibilita o uso do CSS-in-JS para estilização de componentes e páginas React.

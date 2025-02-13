@@ -1,19 +1,45 @@
 import styled from "styled-components";
+
 import { Link } from "react-router-dom";
+
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.header`
   grid-area: header;
   height: 105px;
   width: 100%;
 
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: ${({theme}) => theme.COLORS.BACKGROUND_700};
-
   display: flex;
   justify-content: space-between;
   
   padding: 0px 80px;
+
+  .profile-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+
+    margin-top: 28px;
+
+    button {
+      font-size: 36px;
+      color: ${({theme}) => theme.COLORS.WHITE};
+
+      background-color: ${({theme}) => theme.COLORS.BACKGROUND_800};
+
+      border: none;
+
+      margin-top: 6px;
+    }
+
+    button:hover{
+      filter: none;
+    }
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    padding: 0 32px;
+  }
 `
 
 export const Profile = styled(Link)`

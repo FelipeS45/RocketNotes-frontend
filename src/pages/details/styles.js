@@ -1,4 +1,6 @@
-import styled from "styled-components"
+import styled from "styled-components";
+
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
   width: 100%;
@@ -14,6 +16,14 @@ export const Container = styled.div`
     grid-area: content;
     overflow-y: scroll;
     padding: 64px 0px;
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    padding: 0 32px;
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
+    padding: 0 24px;
   }
 `
 

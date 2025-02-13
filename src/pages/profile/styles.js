@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
+
 export const Container = styled.div`
   width: 100%;
 
@@ -24,6 +26,18 @@ export const Container = styled.div`
       border: none;
     }
   }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
+    header {
+      padding: 0 24px;
+    }
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    header {
+      padding: 0 32px;
+    }
+  }
 `
 
 export const Form = styled.form`
@@ -32,6 +46,14 @@ export const Form = styled.form`
 
   >div:nth-child(4){
     margin-top: 36px;
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    padding: 0 32px;
   }
 `
 

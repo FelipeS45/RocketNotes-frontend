@@ -1,11 +1,19 @@
 import styled from "styled-components";
-import backgroundImg from "../../assets/background.png"
+
+import backgroundImg from "../../assets/background.png";
+
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
   height: 100vh;
 
   display: flex;
   align-items: stretch;
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `
 
 export const Form = styled.form`
@@ -37,10 +45,38 @@ export const Form = styled.form`
     margin-top: 124px;
     color: ${({theme}) => theme.COLORS.ORANGE};
   }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    padding: 0 32px;
+
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.SM}) {
+    padding: 0 18px;
+  
+    flex-direction: column;
+    justify-content: center;
+  }
 `
 
 export const Background = styled.div`
   flex: 1;
   background: url(${backgroundImg}) no-repeat center center;
   background-size: cover;
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    display: none;
+
+    width: 1px;
+    height: 1px;
+  }
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.LG}) {
+    display: none;
+
+    width: 1px;
+    height: 1px;
+  }
 `
